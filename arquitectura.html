@@ -1,0 +1,286 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Arquitectura</title>
+<meta http-equiv="content-type" content="text/html;charset=utf-8" />
+<link rel="stylesheet" href="css/style.css" type="text/css" />
+</head>
+<body>
+<div class="wrap">
+  
+  <h1>Arquitectura</h1>
+  <ul id="menu">
+    <li><a href="index.html">inicio</a></li>
+    <li><a href="sistemasInformacion.html">Sitemas de Informacion</a></li>
+    <li><a href="clienteservidor.html">Ciente-Servidor</a></li>
+    <li><a href="arquitectura.html">Arquitectura</a></li>
+    <li><a href="Programamaestro.html">Programa maestro</a></li>
+    <li><a href="Tipodedeservidores.html">Tipos de servidores</a></li>
+    <li><a href="Conceptos.html">Conceptos</a></li>
+  </ul>
+  <div class="clear"></div>
+  <div id="left">
+    <h2>La arquitectura Cliente - Servidor</h2>
+    <br>
+    <p> La arquitectura cliente/servidor persigue el objetivo de procesar la información de un modo distribuido. De esta forma, los usuarios finales pueden estar dispersos en un área geográfica más o menos extensa (un edificio, una localidad, un país, …) y acceder a un conjunto común de recursos compartidos.<br><br>
+        Además, el acceso debe ser transparente (el cliente puede desconocer la ubicación física del recurso que pretende utilizar) y, preferiblemente, multiplataforma, es decir, independiente del sistema operativo, del software de aplicación e incluso del hardware.<br><br>
+        En definitiva, cuando hablamos de la implantación de una arquitectura cliente/servidor, nos referimos a un sistema de información distribuido.<br><br>
+        Además de la transparencia y la independencia del hardware y del software, una implantación cliente/servidor debe tener las siguientes características de una implantación cliente/servidor deben ser:<br>
+        </p>
+        <ul>
+            <li>Transparencia.</li>
+            <li>Independencia.</li>
+            <li>Protocolos asimétricos.</li>
+            <li>Recursos compartidos.</li>
+            <li>Servicio.</li>
+            <li>Encapsulamiento.</li>
+            <li>Integridad.</li>
+            <li>Acoplamiento débil.</li>
+            <li>Escalabilidad.</li>
+            <ul>
+              <br>
+              <p>Debe utilizar protocolos asimétricos, donde el servidor se limita a escuchar, en espera de que un cliente inicie una solicitud.<br><br>
+                El servidor ofrecerá recursos, tanto lógicos como físicos a una cantidad variable y diversa de clientes (por ejemplo, espacio de almacenamiento, bases de datos, impresoras, etc.)<br><br>
+                El servidor ofrecerá también una serie de servicios, que serán usados por los clientes. Estos servicios estarán encapsulados, para ocultar a los clientes los detalles de su implementación (por ejemplo, aceptar el requerimiento de un cliente sobre una base de datos o formatear los datos obtenidos antes de transmitirlos al cliente).<br><br>
+                Se facilitará la integridad y el mantenimiento tanto de los datos como de los programas debido a que se encuentran centralizados en el servidor o servidores.<br><br>
+                Los sistemas estarán débilmente acoplados, ya que interactúan mediante el envío de mensajes.<br><br>
+                Se facilitará la escalabilidad, de manera que sea fácil añadir nuevos clientes a la infraestructura (escalabilidad horizontal) o aumentar la potencia del servidor o servidores, aumentando su número o su capacidad de cálculo (escalabilidad vertical)<br><br>
+            </p>
+            <div align="center"><img src="images/SISTEMAS ARQUITECTURA cliente servidor.jpg"   width="300" height="250"></div><br>
+    <h2>Elementos de la arquitectura cliente/servidor.</h2>
+    <br>
+    <p>El servidor <br><br>
+        Cuando hablamos de una forma genérica, si mencionamos a un servidor, nos referimos a un ordenador, normalmente con prestaciones elevadas, que ejecuta servicios para atender las demandas de diferentes clientes.<br>
+        Sin embargo, bajo el punto de vista de la arquitectura cliente/servidor, un servidor es un proceso que ofrece el recurso (o recursos) que administra a los clientes que lo solicitan (consultar la definición de cliente más abajo).<br>
+        En ocasiones, los servicios también reciben el nombre de demonios (daremos en inglés).<br>
+        Se trata de una terminología que proviene del mundo Unix/Linux.<br>
+        Es muy frecuente que, para referirse a un proceso servidor, se utilice el término back-end.<br>
+        Según el tipo de servidor implantado, tendremos un tipo de arquitectura cliente/servidor diferente.<br>
+        Por último, mencionar que en algunas ocasiones, un servidor puede actuar, a su vez, como cliente de otro servidor.<br><br>
+        El cliente<br><br>
+        Igual que antes, al hablar de forma genérica sobre un cliente, nos referimos a un ordenador, normalmente con prestaciones ajustadas, que requiere los servicios de un equipo servidor.<br>
+        Sin embargo, bajo el punto de vista de la arquitectura cliente/servidor, un cliente es un proceso que solicita los servicios de otro, normalmente a petición de un usuario.<br>
+        En entornos cliente/servidor, suele utilizarse el término front-end para referirse a un proceso cliente.<br>
+        Los mensajes quedan almacenados, permitiendo que el emisor o el receptor estén inactivos por un tiempo. Así, las comunicaciones pueden ser persistentes y asíncronas.<br>
+        Este mecanismo se denomina Message-Oriented Middleware (MOM)<br>
+        Normalmente, un proceso cliente se encarga de interactuar con el usuario, por lo que estará construido con alguna herramienta que permita implementar interfaces gráficas (GUI). Además, se encargará de formular las solicitudes al servidor y recibir su respuesta, por lo que deberá encargarse de una parte de la lógica de la aplicación y de realizar algunas validaciones de forma local.<br><br>
+        El Middleware<br><br>
+        Es la parte del software del sistema que se encarga del transporte de los mensajes entre el cliente y el servidor, por lo que se ejecuta en ambos lados de la estructura.<br>
+        El middleware permite independizar a los clientes y a los servidores, sobre todo, gracias a los sistemas abiertos, que eliminan la necesidad de supeditarse a tecnologías propietarias.<br><br>
+        Por lo tanto, el middleware facilita el desarrollo de aplicaciones, porque resuelve la parte del transporte de mensajes y facilita la interconexión de sistemas heterogéneos sin utilizar tecnologías propietarias.<br>
+        Además, ofrece más control sobre el negocio, debido a que permite obtener información desde diferentes orígenes (uniendo tecnologías y arquitecturas distintas) y ofrecerla de manera conjunta.<br>
+        Podemos estructurar el middleware en tres niveles:<br><br>
+        <ul>
+            <li>El protocolo de transporte, que será común para otras aplicaciones del sistema.</li>
+            <li>El sistema operativo de red</li>
+            <li>El protocolo del servicio, que será específico del tipo de sistema cliente/servidor que estemos considerando.</li>
+        </ul>
+        <br>
+      </p>
+    <br>
+    <h2>El funcionamiento básico</h2><br>
+    <p>Aunque es probable que a estas alturas ya te hagas una idea sobre el funcionamiento general del modelo cliente/servidor, vamos a concretarlo a continuación:<br><br>
+        Lo primero que debe ocurrir es que se inicie el servidor. Esto ocurrirá durante el arranque del sistema operativo o con la intervención posterior del administrador del sistema. Cuando termine de iniciarse, esperará de forma pasiva las solicitudes de los clientes.<br>
+        En algún momento, uno de los clientes conectados al sistema realizará una solicitud al servidor.<br>
+        El servidor recibe la solicitud del cliente, realiza cualquier verificación necesaria y, si todo es correcto, la procesa.<br>
+        Cuando el servidor disponga del resultado solicitado, lo envía al cliente.<br><br>
+        Finalmente, el cliente recibe el resultado que solicitó. A continuación realiza las comprobaciones oportunas (si son necesarias) y, si era ese el objetivo final, se lo muestra al usuario.<br>
+        Si descomponemos este modo de funcionamiento en elementos estructurales, será más fácil comprender los conceptos implicados. De esta forma, podemos obtener una definición de la arquitectura por niveles, estructurada como sigue:<br>
+        Un nivel de presentación, que aglutina los elementos relativos al cliente.<br>
+        Un nivel de aplicación, compuesto por elementos relacionados con el servidor.<br>
+        Un nivel de comunicación, que está formado por los elementos que hacen posible la comunicación entre el cliente y el servidor.<br>
+        Un nivel de base de datos, formado por los elementos relacionados con el acceso a los datos.<br>
+    </p>
+        <br>
+    <h2>Reconocer protocolos de comunicación en red.</h2>
+    <br>
+    <p>Los utilizamos prácticamente todos los días, aunque la mayoría de los usuarios no lo sepan, ni conozcan su funcionamiento.   <br>
+        La interconexión de sistemas o redes de computadoras son la base de las comunicaciones hoy en día y están diseñadas bajo múltiples protocolos de comunicación. Por ejemplo, existen muchos protocolos al establecer una conexión a internet y según el tipo que se necesite establecer, dichos protocolos van a variar. Además, la comunicación a internet no es el único tipo de comunicación cuando hablamos de transmisión de datos e intercambio de mensajes en redes. En todos los casos, los protocolos de red definen las características de la conexión.    <br><br>
+        Un protocolo es un conjunto de reglas: los protocolos de red son estándares y políticas formales, conformados por restricciones, procedimientos y formatos que definen el intercambio de paquetes de información para lograr la comunicación entre dos servidores o más dispositivos a través de una red.   <br>   <br>
+        Los protocolos de red incluyen mecanismos para que los dispositivos se identifiquen y establezcan conexiones entre sí, así como reglas de formato que especifican cómo se forman los paquetes y los datos en los mensajes enviados y recibidos. Algunos protocolos admiten el reconocimiento de mensajes y la compresión de datos diseñados para una comunicación de red confiable de alto rendimiento.   <br>
+    </p>
+      <br>
+    <h2>Tipos de protocolos de red</h2>
+    <br>
+    <p>
+        Los protocolos para la transmisión de datos en internet más importantes son TCP (Protocolo de Control de Transmisión) e IP (Protocolo de Internet). De manera conjunta (TCP/IP) podemos enlazar los dispositivos que acceden a la red, algunos otros protocolos de comunicación asociados a internet son POP, SMTP y HTTP.<br><br>
+        Estos los utilizamos prácticamente todos los días, aunque la mayoría de los usuarios no lo sepan ni conozcan su funcionamiento. Estos protocolos permiten la transmisión de datos desde nuestros dispositivos para navegar a través de los sitios, enviar correos electrónicos, escuchar música online, etc.<br><br>
+        Existen varios tipos de protocolos de red:<br>
+        <ul>
+            <li>•	Protocolos de comunicación de red: protocolos de comunicación de paquetes básicos como TCP / IP y HTTP.</li>
+            <li>•	Protocolos de seguridad de red: implementan la seguridad en las comunicaciones de red entre servidores, incluye HTTPS, SSL y SFTP.</li>
+            <li>•	Protocolos de gestión de red: proporcionan mantenimiento y gobierno de red, incluyen SNMP e ICMP.</li>
+        </ul>   
+        <br>
+        Un grupo de protocolos de red que trabajan juntos en los niveles superior e inferior comúnmente se les denomina familia de protocolos.<br>
+        El modelo OSI (Open System Interconnection) organiza conceptualmente a las familias de protocolos de red en capas de red específicas. Este Sistema de Interconexión Abierto tiene por objetivo establecer un contexto en el cual basar las arquitecturas de comunicación entre diferentes sistemas.<br><br>
+        A continuación listamos algunos de los protocolos de red más conocidos, según las capas del modelo OSI:<br><br>
+        <div align="center"><img src="images/protocolos de comunicación en red.jpg"   width="300" height="250"></div><br>
+        <ul>
+            <li> <b>Protocolos de la capa 1 - Capa física</b></li>
+            <br>
+            <li>•	USB: Universal Serial Bus</li>
+            <li>•   Ethernet: Ethernet physical layer</li>
+            <li>•	DSL: Digital subscriber line</li>
+            <li>•	Etherloop: Combinación de Ethernet and DSL</li>
+            <li>•	Infrared: Infrared radiation</li>
+            <li>•	Frame Relay</li>
+            <li>•	SDH: Jerarquía digital síncrona</li>
+            <li>•	SONET: Red óptica sincronizada</li>
+            <br>
+            <li><b> Protocolos de la capa 2 - Enlace de datos</b></li>
+            <br>
+            <li>•	DCAP: Protocolo de acceso del cliente de la conmutación de la transmisión de datos</li>
+            <li>•	FDDI: Interfaz de distribución de datos en fibra</li>
+            <li>•	HDLC: Control de enlace de datos de alto nivel</li>
+            <li>•	LAPD: Protocolo de acceso de enlace para los canales</li>
+            <li>•	PPP: Protocolo punto a punto</li>
+            <li>•	STP (Spanning Tree Protocol): protocolo del árbol esparcido</li>
+            <li>•	VTP VLAN: trunking virtual protocol para LAN virtual</li>
+            <li>•	MPLS: Conmutación multiprotocolo de la etiqueta</li>
+            <br>
+            <li><b>Protocolos de la capa 3 - Red</b></li>
+            <br>
+            <li>•	ARP: Protocolo de resolución de direcciones</li>
+            <li>•	BGP: Protocolo de frontera de entrada</li>
+            <li>•	ICMP: Protocolo de mensaje de control de Internet</li>
+            <li>•	IPv4: Protocolo de internet versión 4</li>
+            <li>•	IPv6: Protocolo de internet versión 6</li>
+            <li>•	IPX: Red interna del intercambio del paquete</li>
+            <li>•	OSPF: Abrir la trayectoria más corta primero</li>
+            <li>•	RARP: Protocolo de resolución de direcciones inverso</li>
+            <br>
+            <li><b> Protocolos de la capa 4 - Transporte</b></li>
+            <br>
+            <li>•	IL: Convertido originalmente como capa de transporte para 9P</li>
+            <li>•	SPX: Intercambio ordenado del paquete</li>
+            <li>•	SCTP: Protocolo de la transmisión del control de la corriente</li>
+            <li>•	TCP: Protocolo del control de la transmisión</li>
+            <li>•	UDP: Protocolo de datagramas de usuario</li>
+            <li>•	iSCSI: Interfaz de sistema de computadora pequeña de Internet iSCSI</li>
+            <li>•	DCCP: Protocolo de control de congestión de datagramas</li>
+            <br>
+            <li><b>Protocolos de la capa 5 - Sesión</b></li>
+            <br>
+            <li>•	NFS: Red de sistema de archivos</li>
+            <li>•	SMB: Bloque del mensaje del servidor</li>
+            <li>•	RPC: Llamada a procedimiento remoto</li>
+            <li>•	SDP: Protocolo directo de sockets</li>
+            <li>•	SMB: Bloque de mensajes del servidor</li>
+            <li>•	SMPP: Mensaje corto punto a punto</li>
+            <br>
+            <li><b>Protocolos de la capa 6- Presentación</b></li>
+            <br>
+            <li>•	TLS: Seguridad de la capa de transporte</li>
+            <li>•	SSL: Capa de conexión segura</li>
+            <li>•	XDR: Extenal data representation</li>
+            <li>•	MIME: Multipurpose Internet Mail Extensions</li>
+            <br>
+            <li><b></b>Protocolos de la capa 7 - Aplicación</b></li>
+            <br>
+            <li>•	DHCP: Protocolo de configuración dinámica de host</li>
+            <li>•	DNS: Domain Name System</li>
+            <li>•	HTTP: Protocolo de transferencia de hipertexto</li>
+            <li>•	HTTPS: Protocolo de transferencia de hipertexto seguro</li>
+            <li>•	POP3: Protocolo de oficina de correo</li>
+            <li>•	SMTP: protocolo de transferencia simple de correo</li>
+            <li>•	Telnet: Protocolo de telecomunicaciones de red</li>
+        </ul> 
+        <br>
+        <div align="center"><img src="images/protocolos de comunicación en red2.jpg"   width="300" height="250"></div><br>
+    </p>
+        <br>
+        <h2>Clasificar los sistemas de información de acuerdo a su arquitectura</h2>
+        <br>
+        <p>
+          Existen diferentes tipos de arquitecturas de sistemas cuya estructura varía en función de las necesidades de las empresas y del momento histórico en el que se introdujeron. Vamos a describir de forma esquemática las visiones lógica y física de las mismas.<br>
+         </p>
+        <br> 
+        <h4>Niveles lógicos</h4>
+        <br>
+        <p>Con independencia de la implementación física, se puede realizar una subdivisión lógica de los sistemas de información en tres niveles:</p>
+        <ul>
+          <li>-Interfaz de usuario: nivel de presentación donde reside la lógica de presentación e interacción con el usuario.</li>
+          <li>-La lógica de negocio: donde residen las reglas de negocio y validación. Es el núcleo funcional de la aplicación.</li>
+          <li>-El acceso a los datos: nivel encargado de la persistencia e integridad de la información en el sistema.</li>
+        </ul>
+        <br>
+        <h4>Sistemas monolíticos/centralizados</h4>
+        <p>Su implementación física consiste en disponer de un gran ordenador central (mainframe) que sirve a cientos o miles de usuarios conectados al mismo a través de una pantalla “tonta” (dumb terminal) que se utiliza para entrar o actualizar datos y acceder a información en el mainframe. Tanto la interfaz de usuario como las reglas de negocio y los datos residen en la misma máquina. Se produce, en consecuencia, un acoplamiento de niveles.
+          IBM popularizó en los setenta este tipo de arquitectura para satisfacer las necesidades de procesamiento grandes corporaciones. Sin embargo, en la actualidad muy pocas organizaciones utilizan exclusivamente este tipo arquitectura basada en un único ordenador central.
+          </p>
+          <br>
+        <h4>Arquitectura cliente/servidor</h4>
+        <p>A partir de mediados de los ochenta se fue extendiendo el uso de terminales “inteligentes” en forma de PC de sobremesa o portátiles que, además de teclado y pantalla, incorporan elevadas capacidades de proceso y almacenaje, de modo que los usuarios pueden procesar información localmente, de forma descentralizada y autónoma respecto al mainframe u ordenador central. Comienzan a implementarse numerosas redes locales, departamentales y corporativas.
+          En esta arquitectura tanto interfaz de usuario, basada en Windows, como la lógica de negocio de las aplicaciones reside en las máquinas “cliente”. Los datos residen en el servidor y son compartidos por todas las estaciones cliente.          
+        </p>
+        <h4>Arquitectura distribuida</h4>
+        <p>A mediados de los noventa con el uso generalizado de Internet surge la arquitectura distribuida. Se establece una división entre los distintos niveles lógicos, necesaria para soportar las nuevas arquitecturas Internet. Implementación de dicha separación se consigue con la incorporación de un nuevo tipo de servidor: el servidor de aplicaciones. La lógica de negocio, que en la arquitectura cliente/servidor residía en el PC, es ejecutada ahora en los servidores de aplicaciones.</p>
+        <p>En la arquitectura distribuida cada nivel lógico dispone de un tipo de servidor físico especializado:</p>
+        <ul>
+          <li>Interfaz de usuario -> Servidor web</li>
+          <li>La lógica de negocio  -> Servidor de aplicaciones</li>
+          <li>Acceso a los datos -> Servidor de base de datos</li>
+        </ul>
+        <p>El desarrollo de esta arquitectura ha sido un facilitador para el desarrollo de Internet y llegado hasta nuestros días. La computación en la nube  es su último exponente.</p>
+        <div align="center"><img src="images/Clasificar sistemas de informacion segun su arqutectura.png"   width="300" height="250"></div><br>
+        <br>
+        <h2>Proceso de diagramación de componentes de la arquitectura Cliente/Servidor.</h2>
+        <br>
+        <h4>Componentes</h4>
+        <p>Para entender este modelo vamos a nombrar y definir a continuación algunos conceptos básicos que lo conforman</p>
+        <ul>
+          <li>•	Red: Una red es un conjunto de clientes, servidores y base de datos unidos de una manera física o no física en el que existen protocolos de transmisión de información establecidos.</li>
+          <li>•	Cliente: El concepto de cliente hace referencia a un demandante de servicios, este cliente puede ser un ordenador como también una aplicación de informática, la cual requiere información proveniente de la red para funcionar.</li>
+          <li>•	Servidor: Un servidor hace referencia a un proveedor de servicios, este servidor a su vez puede ser un ordenador o una aplicación informática la cual envía información a los demás agentes de la red.</li>
+          <li>•	Protocolo: Un protocolo es un conjunto de normas o reglas y pasos establecidos de manera clara y concreta sobre el flujo de información en una red estructurada.</li>
+          <li>•	Servicios: Un servicio es un conjunto de información que busca responder las necesidades de un cliente, donde esta información pueden ser mail, música, mensajes simples entre software, videos, etc.</li>
+        </ul>
+        <br>
+          <h4>Caracteristicas del Modelo Cliente/Servidor</h4>
+          <p>En el modelo CLIENTE/SERVIDOR podemos encontrar las siguientes características:</p>
+          <ul>
+            <li>1.	El Cliente y el Servidor pueden actuar como una sola entidad y también pueden actuar como entidades separadas, realizando actividades o tareas independientes.</li>
+            <li>2.	Las funciones de Cliente y Servidor pueden estar en plataformas separadas, o en la misma plataforma.
+              Para ver el gráfico seleccione la opción "Descargar" del menú superior</li>
+            <li>3.	Un servidor da servicio a múltiples clientes en forma concurrente.</li>
+            <li>4.	Cada plataforma puede ser escalable independientemente. Los cambios realizados en las plataformas de los Clientes o de los Servidores, ya sean por actualización o por reemplazo tecnológico, se realizan de una manera transparente para el usuario final.</li>
+            <li>5.	La interrelación entre el hardware y el software están basados en una infraestructura poderosa, de tal forma que el acceso a los recursos de la red no muestra la complejidad de los diferentes tipos de formatos de datos y de los protocolos.</li>
+            <li>6.	Un sistema de servidores realiza múltiples funciones al mismo tiempo que presenta una imagen de un solo sistema a las estaciones Clientes. Esto se logra combinando los recursos de cómputo que se encuentran físicamente separados en un solo sistema lógico, proporcionando de esta manera el servicio más efectivo para el usuario final.
+              También es importante hacer notar que las funciones Cliente/Servidor pueden ser dinámicas. Ejemplo, un servidor puede convertirse en cliente cuando realiza la solicitud de servicios a otras plataformas dentro de la red.
+              Su capacidad para permitir integrar los equipos ya existentes en una organización, dentro de una arquitectura informática descentralizada y heterogénea.
+              </li>
+            <li>7.	Además se constituye como el nexo de unión más adecuado para reconciliar los sistemas de información basados en mainframes o minicomputadores, con aquellos otros sustentados en entornos informáticos pequeños y estaciones de trabajo.</li>
+            <li>8.	Designa un modelo de construcción de sistemas informáticos de carácter distribuido.</li>
+          </ul>
+          <div align="center"><img src="images/proceso de diagramación de componentes de la arquitectura Cliente Servidor.jpg"   width="300" height="250"></div><br>
+        <br>
+        <h2>Componentes del modelo  Cliente/Servidor</h2>
+        <p>En esta aproximación, y con el objetivo de definir y delimitar el modelo de referencia de una arquitectura Cliente/Servidor, se identifican cinco componentes que permitan articular dicha arquitectura, considerando que toda aplicación de un sistema de información está caracterizada por lo siguiente:</p>
+        <ul>
+          <p><b>Presentación/Captación de la información.</b></p>
+          <li>La captación es el efecto de captar, del latín “capio”, que significa capturar. Por lo tanto la captación importa capturar, tomar algo ajeno para hacerlo propio o simplemente para conocerlo, estudiarlo, cuidarnos de sus efectos, etcétera, ya sean cosas materiales, imágenes o ideas</li>
+          <p><b>Procesos</b></p>
+          <li>Procesamiento o conjunto de operaciones a que se somete una cosa para elaborarla o transformarla.</li>
+          <p><b>Almacenamiento de la información</b></p>
+          <li>Un dispositivo de almacenamiento de datos es un conjunto de componentes electrónicos habilitados para leer o grabar datos en el soporte de almacenamiento de datos de forma temporal o permanente</li>
+          <p><b>Puestos de trabajo</b></p>
+          <li> Actividad o actividades concretas que el trabajador desarrolla en la empresa y por las que percibe un determinado sueldo o salario.</li>
+          <p><b>Comunicaciones</b></p>
+          <li>es la acción consciente de intercambiar información entre dos o más participantes con el fin de transmitir o recibir información u opiniones distintas.</li>
+        </ul>
+        <div align="center"><img src="images/componentes del modelo Cliente Servidor.png"   width="350" height="250"></div><br>
+  </div>
+</div>
+<div id="footer">
+  <div class="wrap">
+    <div id="col">
+      <p>VICTOR ANGEL JOSE GALLOZO MATRICULA:1320114085 <br>
+        ZAMORA ARREOLA CHRISTIAN ARMANDO MATRICULA:1320114025</p>
+    </div>
+    <div class="clear"></div>
+  </div>
+</div>
+</body>
+</html>
+                                          
